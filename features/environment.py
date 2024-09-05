@@ -28,18 +28,18 @@ def before_tag(context, tag):
     if debug:
         print(f'before tag: {tag}')
 
-    # if tag.startswith("fixture.") and tag in fixture_registry_before:
-    #     print(tag + ":")
-    #     use_fixture_by_tag(tag, context, fixture_registry_before)
+    if tag.startswith("fixture.") and tag in fixture_registry_before:
+        print(tag + ":")
+        use_fixture_by_tag(tag, context, fixture_registry_before)
 
 
 def after_tag(context, tag):
     if debug:
-        print(f'before tag: {tag}')
+        print(f'after tag: {tag}')
 
-    # if tag.startswith("fixture.") and tag in fixture_registry_after:
-    #     print(tag + ":")
-    #     use_fixture_by_tag(tag, context, fixture_registry_after)
+    if tag.startswith("fixture.") and tag in fixture_registry_after:
+        print(tag + ":")
+        use_fixture_by_tag(tag, context, fixture_registry_after)
 
 
 def before_scenario(context, scenario):
