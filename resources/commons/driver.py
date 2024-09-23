@@ -6,7 +6,7 @@ from resources.appium.appium_config import appium_server_url, capabilities
 
 
 class Driver:
-    __driver: WebDriver = None
+    __driver = None
 
     @classmethod
     def get_driver(cls) -> WebDriver:
@@ -14,3 +14,8 @@ class Driver:
             cls.__driver = webdriver.Remote(command_executor=appium_server_url,
                                             options=UiAutomator2Options().load_capabilities(capabilities))
         return cls.__driver
+
+    @classmethod
+    def quit(cls):
+        cls.__driver.quit()
+        cls.__driver = None

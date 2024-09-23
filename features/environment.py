@@ -2,14 +2,18 @@ from behave.fixture import use_fixture_by_tag
 
 from main import debug
 from resources.behave.fixture_registry import fixture_registry_before, fixture_registry_after
+from resources.commons.driver import Driver
 
 
 def before_all(context):
+    Driver.get_driver()
+
     if debug:
         print('before all')
 
 
 def after_all(context):
+    Driver.quit()
     if debug:
         print('after all')
 

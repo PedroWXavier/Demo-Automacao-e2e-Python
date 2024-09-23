@@ -11,9 +11,9 @@ def step_impl(context):
 
 @when(u'busco por "{texto}"')
 def step_impl(context, texto):
-    pass
+    context.settings_home.enviar_wifi_para_campo_search()
 
 
 @then(u'devo encontrar a opcao de wifi')
 def step_impl(context):
-    pass
+    assert context.settings_home.validar_wifi()
